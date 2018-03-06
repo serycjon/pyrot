@@ -61,6 +61,13 @@ class Quaternion(object):
         if isinstance(other, (float, int)):
             return Quaternion(self.data / other)
 
+        return self * other.inverse()
+
+    def __rdiv__(self, other):
+        if isinstance(other, (float, int)):
+            other = Quaternion(other, 0, 0, 0)
+        return other / self
+
     def conjugate(self):
         return Quaternion(self.data[0],
                           -self.data[1],
@@ -77,6 +84,8 @@ class Quaternion(object):
         return inv
 
     def __eq__(self, other):
+        if isinstance(other, (float, int)):
+            other = Quaternion(other, 0, 0, 0)
         return np.all(self.data == other.data)
 
     def __ne__(self, other):

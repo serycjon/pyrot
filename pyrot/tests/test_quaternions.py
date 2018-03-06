@@ -78,6 +78,20 @@ class TestQuaternions(TestCase):
         c = a / b
         self.assertAlmostEqual(c, pyrot.Quaternion(1./2, -2./2, 3./2, 4./2))
 
+    def test_division(self):
+        a = pyrot.Quaternion(1, -2, 3, 4)
+        b = pyrot.Quaternion(-6, 2, 1, 2)
+
+        c = a / b
+        self.assertAlmostEqual(c * b, a)
+
+    def test_right_scalar_division(self):
+        a = 2
+        b = pyrot.Quaternion(1, -2, 3, 4)
+
+        c = a / b
+        self.assertAlmostEqual(c * b, a)
+
     def test_conjugation(self):
         a = pyrot.Quaternion(1, -2, 3, 4)
 
