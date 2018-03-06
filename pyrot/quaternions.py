@@ -10,8 +10,15 @@ class Quaternion(object):
             self.data = np.float64([a, b, c, d])
 
     def __add__(self, other):
+        if isinstance(other, (float, int)):
+            other = Quaternion(other, 0, 0, 0)
         sum_data = self.data + other.data
         return Quaternion(sum_data)
+
+    def __radd__(self, other):
+        if isinstance(other, (float, int)):
+            other = Quaternion(other, 0, 0, 0)
+        return self.__add__(other)
 
     def __sub__(self, other):
         if isinstance(other, (float, int)):

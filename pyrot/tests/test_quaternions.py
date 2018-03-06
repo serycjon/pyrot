@@ -22,6 +22,13 @@ class TestQuaternions(TestCase):
         c = a + b
         self.assertEqual(c, pyrot.Quaternion(-5, 4, 4, 6))
 
+    def test_scalar_add(self):
+        a = 6
+        b = pyrot.Quaternion(-6, 2, 1, 2)
+
+        c = a + b
+        self.assertEqual(c, pyrot.Quaternion(0, 2, 1, 2))
+
     def test_sub(self):
         a = pyrot.Quaternion(-6, 2, 1, 2)
         b = pyrot.Quaternion(1, 2, 3, 4)
