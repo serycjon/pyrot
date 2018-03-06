@@ -69,10 +69,7 @@ class TestQuaternions(TestCase):
         b = 2
 
         c = a / b
-        self.assertTrue((c - pyrot.Quaternion(1./2,
-                                              -2./2,
-                                              3./2,
-                                              4./2)).norm() < 1e-7)
+        self.assertAlmostEqual(c, pyrot.Quaternion(1./2, -2./2, 3./2, 4./2))
 
     def test_conjugation(self):
         a = pyrot.Quaternion(1, -2, 3, 4)

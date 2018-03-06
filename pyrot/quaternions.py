@@ -75,6 +75,9 @@ class Quaternion(object):
     def __ne__(self, other):
         return not self.__eq__(other)
 
+    def __abs__(self):
+        return self.norm()
+
     def __str__(self):
         result = ''
         result += '{:.2f}'.format(self.data[0])
