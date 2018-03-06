@@ -86,8 +86,8 @@ class Quaternion(object):
         return self.norm()
 
     def _illegal_op(self, op):
-        raise NotImplementedError('Illegal operation {} for quaternions'
-                                  .format(op))
+        raise TypeError('Illegal operation {} for quaternions'
+                        .format(op))
 
     def __gt__(self, other):
         self._illegal_op('>')

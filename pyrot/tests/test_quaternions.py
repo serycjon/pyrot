@@ -101,26 +101,26 @@ class TestQuaternions(TestCase):
         a = pyrot.Quaternion(1, -2, 3, 4)
         b = pyrot.Quaternion(-6, 2, 1, 2)
 
-        with self.assertRaises(NotImplementedError):
+        with self.assertRaises(TypeError):
             (a > b)
 
     def test_ge(self):
         a = pyrot.Quaternion(1, -2, 3, 4)
         b = pyrot.Quaternion(-6, 2, 1, 2)
 
-        with self.assertRaises(NotImplementedError):
+        with self.assertRaises(TypeError):
             (a >= b)
 
     def test_lt(self):
         a = pyrot.Quaternion(1, -2, 3, 4)
         b = pyrot.Quaternion(-6, 2, 1, 2)
 
-        with self.assertRaises(NotImplementedError):
+        with self.assertRaises(TypeError):
             (a < b)
 
     def test_le(self):
         a = pyrot.Quaternion(1, -2, 3, 4)
         b = pyrot.Quaternion(-6, 2, 1, 2)
 
-        with self.assertRaises(NotImplementedError):
+        with self.assertRaises(TypeError):
             (a <= b)
