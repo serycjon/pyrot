@@ -1,1 +1,1 @@
-from .quaternions import joke
+from .quaternions import Quaternion
