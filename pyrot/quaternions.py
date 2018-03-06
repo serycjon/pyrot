@@ -78,6 +78,22 @@ class Quaternion(object):
     def __abs__(self):
         return self.norm()
 
+    def _illegal_op(self, op):
+        raise NotImplementedError('Illegal operation {} for quaternions'
+                                  .format(op))
+
+    def __gt__(self, other):
+        self._illegal_op('>')
+
+    def __ge__(self, other):
+        self._illegal_op('>=')
+
+    def __lt__(self, other):
+        self._illegal_op('<')
+
+    def __le__(self, other):
+        self._illegal_op('<=')
+
     def __str__(self):
         result = ''
         result += '{:.2f}'.format(self.data[0])

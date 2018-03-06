@@ -88,6 +88,32 @@ class TestQuaternions(TestCase):
         b = a.inverse()
 
         c = a * b
+        self.assertAlmostEqual(c, pyrot.Quaternion(1, 0, 0, 0))
 
-        norm  = (1 - c).norm()
-        self.assertAlmostEqual(norm, 0)
+    def test_gt(self):
+        a = pyrot.Quaternion(1, -2, 3, 4)
+        b = pyrot.Quaternion(-6, 2, 1, 2)
+
+        with self.assertRaises(NotImplementedError):
+            (a > b)
+
+    def test_ge(self):
+        a = pyrot.Quaternion(1, -2, 3, 4)
+        b = pyrot.Quaternion(-6, 2, 1, 2)
+
+        with self.assertRaises(NotImplementedError):
+            (a >= b)
+
+    def test_lt(self):
+        a = pyrot.Quaternion(1, -2, 3, 4)
+        b = pyrot.Quaternion(-6, 2, 1, 2)
+
+        with self.assertRaises(NotImplementedError):
+            (a < b)
+
+    def test_le(self):
+        a = pyrot.Quaternion(1, -2, 3, 4)
+        b = pyrot.Quaternion(-6, 2, 1, 2)
+
+        with self.assertRaises(NotImplementedError):
+            (a <= b)
