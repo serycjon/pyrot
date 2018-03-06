@@ -101,6 +101,12 @@ class Quaternion(object):
     def __le__(self, other):
         self._illegal_op('<=')
 
+    def __bool__(self):
+        return not np.all(self.data == 0)
+
+    def __nonzero__(self):
+        return self.__bool__()
+
     def __str__(self):
         result = ''
         result += '{:.2f}'.format(self.data[0])

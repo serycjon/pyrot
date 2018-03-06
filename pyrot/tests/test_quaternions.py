@@ -124,3 +124,13 @@ class TestQuaternions(TestCase):
 
         with self.assertRaises(TypeError):
             (a <= b)
+
+    def test_bool_true(self):
+        a = pyrot.Quaternion(1, -2, 3, 4)
+
+        self.assertTrue(a)
+
+    def test_bool_false(self):
+        a = pyrot.Quaternion(0, 0, 0, 0)
+
+        self.assertFalse(a)
